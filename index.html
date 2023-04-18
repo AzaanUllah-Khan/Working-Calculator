@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="https://cdn2.iconfinder.com/data/icons/ios7-inspired-mac-icon-set/512/Calculator_512.png">
+    <title>Calculator</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bolder;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 95vh;
+            width: 100%;
+            overflow: hidden;
+            background-color: #eff;
+        }
+
+        .calculator {
+            width: 25%;
+            background-color: #345;
+            padding: 15px 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .input {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .input input {
+            width: 100%;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            height: 50px;
+            font-size: 30px;
+            color: white;
+            font-weight: bolder;
+            padding: 10px 35px;
+            text-align: right;
+        }
+
+        .btn {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .row1,
+        .row2,
+        .row3,
+        .row4,
+        .row5 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .btn input {
+            width: 20%;
+            border-radius: 50%;
+            padding: 20px;
+            text-align: center;
+            margin-right: 10px;
+            background-color: transparent;
+            color: white;
+            outline: none;
+            border: none;
+        }
+
+        .row1 input:not(:last-child) {
+            background-color: #ccc;
+            color: black;
+        }
+
+        .btn .last {
+            background-color: orange;
+            color: white;
+        }
+
+        .btn input:hover {
+            background-color: #cccccc45;
+        }
+
+        .btn .last:hover {
+            background-color: rgb(233, 151, 0);
+        }
+
+        .row1 input:not(:last-child):hover {
+            background-color: #ccc;
+            color: black;
+        }
+
+        @media screen and (max-width: 950px) {
+            .calculator {
+                width: 40%;
+            }
+        }
+
+        @media screen and (max-width: 700px) {
+            .calculator {
+                width: 55%;
+            }
+        }
+
+        @media screen and (max-width: 450px) {
+            .calculator {
+                width: 75%;
+                height: 75vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <form>
+            <div class="input">
+                <input type="text" readonly name="display">
+            </div>
+            <div class="btn">
+                <div class="row1">
+                    <input type="button" value="C" onclick="display.value = ''">
+                    <input type="button" value="%" onclick="display.value += '%'">
+                    <input type="button" value="X"
+                        onclick="display.value = display.value = display.value.toString().slice(0,-1)">
+                    <input type="button" value="/" onclick="display.value += '/'" class="last">
+                </div>
+                <div class="row2">
+                    <input type="button" value="7" onclick="display.value += '7'">
+                    <input type="button" value="8" onclick="display.value += '8'">
+                    <input type="button" value="9" onclick="display.value += '9'">
+                    <input type="button" value="x" onclick="display.value += '*'" class="last">
+                </div>
+                <div class="row3">
+                    <input type="button" value="4" onclick="display.value += '4'">
+                    <input type="button" value="5" onclick="display.value += '5'">
+                    <input type="button" value="6" onclick="display.value += '6'">
+                    <input type="button" value="-" onclick="display.value += '-'" class="last">
+                </div>
+                <div class="row4">
+                    <input type="button" value="1" onclick="display.value += '1'">
+                    <input type="button" value="2" onclick="display.value += '2'">
+                    <input type="button" value="3" onclick="display.value += '3'">
+                    <input type="button" value="+" onclick="display.value += '+'" class="last">
+                </div>
+                <div class="row5">
+                    <input type="button" value="00" onclick="display.value += '00'">
+                    <input type="button" value="0" onclick="display.value += '0'">
+                    <input type="button" value="." onclick="display.value += '.'">
+                    <input type="button" value="=" onclick="display.value = eval(display.value)" class="last">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
