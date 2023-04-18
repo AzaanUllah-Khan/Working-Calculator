@@ -127,14 +127,16 @@
                 height: 75vh;
             }
         }
-        .calculator .name{
+
+        .calculator .name {
             color: red;
             font-size: 10px;
             text-align: right;
             width: 100%;
             padding-right: 50px;
         }
-        .named{
+
+        .named {
             color: beige;
         }
     </style>
@@ -144,13 +146,13 @@
     <div class="calculator">
         <form>
             <div class="input">
-                <input type="text" readonly name="display">
+                <input type="text" readonly name="display" id="dis">
             </div>
             <div class="btn">
                 <div class="row1">
-                    <input type="button" value="C" onclick="display.value = ''">
-                    <input type="button" value="%" onclick="display.value += '%'">
-                    <input type="button" value="X"
+                    <input type="button" value="AC" onclick="display.value = ''">
+                    <input type="button" value="%" onclick="percentage()">
+                    <input type="button" value="C"
                         onclick="display.value = display.value = display.value.toString().slice(0,-1)">
                     <input type="button" value="/" onclick="display.value += '/'" class="last">
                 </div>
@@ -184,6 +186,14 @@
             <p>Made By <span class="named">@azaanullahkhan</span></p>
         </div>
     </div>
+    <script>
+        var inp = document.getElementById("dis")
+        function percentage() {
+            var n = prompt("What do you want to take % of");
+            var ans = n * (inp.value/100)
+            inp.value = ans;
+        }
+    </script>
 </body>
 
 </html>
